@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waroeng Krishna - Nasi Uduk & Magic Potion</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#bfe3f5;--pink:#ffc9e0;--pink2:#ff9ec9;--yellow:#fff1b8;--ink:#2d3a52;--soft:#6b7a93}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Fredoka',system-ui,sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--blue) 0,var(--yellow) 45%,var(--pink) 100%);background-attachment:fixed;padding-bottom:110px}
+.hero{text-align:center;padding:36px 20px 20px}
+.logo{width:min(260px,70vw);background:#fff;border-radius:28px;padding:10px;box-shadow:0 10px 30px rgba(45,58,82,.15)}
+.hero h1{font-family:'Pacifico','Brush Script MT',cursive;font-weight:400;font-size:clamp(2.6rem,11.5vw,4.4rem);line-height:1.15;margin-top:18px;color:#3d2b9e;text-shadow:3px 3px 0 #fff,0 8px 18px rgba(61,43,158,.25)}
+.wrap{max-width:960px;margin:0 auto;padding:10px 18px}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.card{background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 10px 28px rgba(45,58,82,.12);display:flex;flex-direction:column}
+.card img{width:100%;height:210px;object-fit:cover}
+.imgbox{position:relative}
+.badge{position:absolute;top:12px;left:12px;background:var(--pink2);color:#fff;border-radius:99px;padding:4px 12px;font-size:.85rem;font-weight:600}
+.body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.body h3{font-size:1.35rem}
+.tag{color:var(--soft);font-size:.98rem}
+.comp{background:var(--yellow);border-radius:16px;padding:10px 14px;font-size:.92rem;line-height:1.5}
+.comp b{display:block;margin-bottom:2px}
+.price{font-size:1.5rem;font-weight:700;color:#e0559a}
+.price s{font-size:.95rem;color:var(--soft);font-weight:400;margin-left:6px}
+.buy{margin-top:auto;display:flex;align-items:center;justify-content:space-between;background:var(--blue);border-radius:99px;padding:6px}
+.buy span.q{font-weight:700;font-size:1.2rem;min-width:36px;text-align:center}
+.buy button{width:42px;height:42px;border:0;border-radius:50%;background:#fff;font-size:1.4rem;font-weight:700;color:var(--ink);cursor:pointer;font-family:inherit}
+.buy button:active{transform:scale(.92)}
+.buy .plus{background:var(--pink2);color:#fff}
+.sub{text-align:right;font-size:.9rem;color:var(--soft);min-height:1.2em}
+.form{background:#fff;border-radius:22px;padding:18px;margin-top:26px;box-shadow:0 8px 22px rgba(45,58,82,.1);display:grid;gap:10px}
+.form input{width:100%;border:2px solid var(--blue);border-radius:14px;padding:11px 14px;font:inherit;outline:none}
+.form input.bad{border-color:#e0559a;background:#fff0f6}
+.form input:focus{border-color:var(--pink2)}
+footer{text-align:center;color:var(--soft);padding:26px 10px;font-size:.9rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;box-shadow:0 -6px 24px rgba(45,58,82,.15);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-radius:24px 24px 0 0;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+.bar small{color:var(--soft);display:block}
+.bar strong{font-size:1.3rem}
+.wa{background:#25d366;color:#fff;border:0;border-radius:99px;padding:13px 22px;font:600 1rem 'Fredoka',sans-serif;cursor:pointer;box-shadow:0 6px 16px rgba(37,211,102,.4)}
+.wa:disabled{background:#c5ccd6;box-shadow:none;cursor:not-allowed}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="logo" src="https://cdn.phototourl.com/member/2026-11-02-9f8ada93-1e7f-4323-ab98-d3e65def5862.jpg" alt="Logo NasDuk Krishna">
+  <h1>Waroeng Krishna</h1>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+
+    <article class="card">
+      <div class="imgbox"><img src="https://cdn.phototourl.com/member/2026-11-02-6fdcbf8a-12b6-4c17-b88d-e51d2f86741a.jpg" alt="Nasi Uduk Krishna"></div>
+      <div class="body">
+        <h3>🍚 Nasi Uduk Krishna</h3>
+        <p class="tag">Savory, creamy, and ready to steal your heart! 🤍</p>
+        <div class="comp"><b>Komposisi:</b>Nasi uduk gurih berwarna biru cantik dari bunga telang 💙, ditemani telur dadar lembut, bihun goreng, tempe orek manis gurih, kerupuk renyah, irisan timun segar, dan sambal pedas yang bikin nagih 🌶️</div>
+        <div class="price">Rp12.000</div>
+        <div class="buy"><button onclick="chg('uduk',-1)">−</button><span class="q" id="q-uduk">0</span><button class="plus" onclick="chg('uduk',1)">+</button></div>
+        <div class="sub" id="s-uduk"></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="imgbox"><img src="https://cdn.phototourl.com/member/2026-11-02-8c3be858-606b-466d-88a2-5fe1c67a6d6d.jpg" alt="Magic Potion"></div>
+      <div class="body">
+        <h3>🪄 Magic Potion</h3>
+        <p class="tag">A little sip of magic in every drop! 🩵✨</p>
+        <div class="comp"><b>Komposisi:</b>Teh bunga telang yang disegarkan dengan lemon 🍋. Tuang lemonnya dan lihat keajaibannya: warnanya bisa berubah jadi pink atau ungu! ✨</div>
+        <div class="price">Rp4.000</div>
+        <div class="buy"><button onclick="chg('potion',-1)">−</button><span class="q" id="q-potion">0</span><button class="plus" onclick="chg('potion',1)">+</button></div>
+        <div class="sub" id="s-potion"></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="imgbox"><img src="https://cdn.phototourl.com/member/2026-11-02-e0a4eefb-4dd8-4994-8d4c-af2a6080702a.jpg" alt="Bundle Krishna"><span class="badge">Hemat Rp1.000</span></div>
+      <div class="body">
+        <h3>🧪 Bundle</h3>
+        <p class="tag">Nasi Uduk Krishna + Magic Potion<br>Why choose one when you can have both? 👀💫</p>
+        <div class="comp"><b>Isi paket:</b>1 porsi Nasi Uduk Krishna lengkap (nasi biru, telur dadar, bihun, tempe orek, kerupuk, timun, sambal) + 1 gelas Magic Potion.</div>
+        <div class="price">Rp15.000 <s>Rp16.000</s></div>
+        <div class="buy"><button onclick="chg('bundle',-1)">−</button><span class="q" id="q-bundle">0</span><button class="plus" onclick="chg('bundle',1)">+</button></div>
+        <div class="sub" id="s-bundle"></div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="form">
+    <strong>Data pemesan 📝 <small style="font-weight:400;color:var(--soft)">(wajib diisi)</small></strong>
+    <input id="nama" placeholder="Nama * (wajib)" autocomplete="name">
+    <input id="kelas" placeholder="Kelas * (wajib)">
+    <div id="err" role="alert" style="color:#d6336c;font-weight:500;display:none"></div>
+  </div>
+</main>
+
+<footer>© Waroeng Krishna · Pesanan dikonfirmasi lewat WhatsApp</footer>
+<div class="bar">
+  <div><small id="items">Belum ada pesanan</small><strong id="total">Rp0</strong></div>
+  <button class="wa" id="wa" disabled onclick="kirim()">Pesan via WhatsApp 💬</button>
+</div>
+
+<script>
+const WA='6285725942671';
+const M={
+  uduk:{n:'Nasi Uduk Krishna',p:12000},
+  potion:{n:'Magic Potion',p:4000},
+  bundle:{n:'Bundle (Uduk + Potion)',p:15000}
+};
+const qty={uduk:0,potion:0,bundle:0};
+const rp=n=>'Rp'+n.toLocaleString('id-ID');
+
+function chg(k,d){qty[k]=Math.max(0,qty[k]+d);render()}
+
+function render(){
+  let total=0,count=0;
+  for(const k in M){
+    document.getElementById('q-'+k).textContent=qty[k];
+    const s=qty[k]*M[k].p;total+=s;count+=qty[k];
+    document.getElementById('s-'+k).textContent=qty[k]?'Subtotal '+rp(s):'';
+  }
+  document.getElementById('total').textContent=rp(total);
+  document.getElementById('items').textContent=count?count+' item dipilih':'Belum ada pesanan';
+  document.getElementById('wa').disabled=!count;
+}
+
+function kirim(){
+  const nama=document.getElementById('nama').value.trim();
+  const kelas=document.getElementById('kelas').value.trim();
+  const e=document.getElementById('err'),ni=document.getElementById('nama'),ki=document.getElementById('kelas');
+  ni.classList.toggle('bad',!nama);
+  ki.classList.toggle('bad',!kelas);
+  if(!nama||!kelas){
+    e.style.display='block';
+    e.textContent='Mohon isi '+(!nama&&!kelas?'nama dan kelas':!nama?'nama':'kelas')+' dulu ya sebelum konfirmasi ke WhatsApp 😉';
+    const f=!nama?ni:ki;
+    f.scrollIntoView({behavior:'smooth',block:'center'});
+    f.focus();
+    return;
+  }
+  e.style.display='none';
+  let t='Halo Waroeng Krishna! Saya mau pesan:\n',total=0;
+  for(const k in M){
+    if(qty[k]){
+      const s=qty[k]*M[k].p;total+=s;
+      t+='• '+M[k].n+' x'+qty[k]+' = '+rp(s)+'\n';
+    }
+  }
+  t+='\nTotal: '+rp(total);
+  t+='\nNama: '+nama+'\nKelas: '+kelas;
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank');
+}
+
+render();
+</script>
+</body>
+</html>
